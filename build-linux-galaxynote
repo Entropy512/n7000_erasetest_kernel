@@ -2,7 +2,7 @@
 #Copy the initramfs
 mkdir -p kernel/usr/initramfs
 rm -rf kernel/usr/initramfs/*
-cp -R ../initramfs/* kernel/usr/initramfs
+cp -R ../n7000_initramfs_dangerous/* kernel/usr/initramfs
 chmod -R g-w kernel/usr/initramfs/*
 rm $(find kernel/usr/initramfs -name EMPTY_DIRECTORY -print)
 rm -rf $(find kernel/usr/initramfs -name .git -print)
