@@ -2037,7 +2037,12 @@ int mshci_add_host(struct mshci_host *host)
 	mmc->ops = &mshci_ops;
 	mmc->f_min = 400000;
 	mmc->f_max = host->max_clk;
+
+#ifndef MMC_MSHCI_DISABLE_ERASE
 	mmc->caps |= MMC_CAP_SDIO_IRQ | MMC_CAP_ERASE;
+#else
+	mmc->caps |= MMC_CAP_SDIO_IRQ;
+#endif
 
 	mmc->caps |= MMC_CAP_4_BIT_DATA;
 

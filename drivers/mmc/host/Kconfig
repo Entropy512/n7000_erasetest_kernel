@@ -54,6 +54,18 @@ config MMC_MSHCI_ASYNC_OPS
 
 	  If unsure, say N.
 
+config MMC_MSHCI_DISABLE_ERASE
+        tristate "Disable MMC ERASE capability of MSHCI controller"
+        depends on MMC_MSHCI
+        default y
+        help
+          Some devices have a defective MMC chip that cannot handle
+          secure erase commands.  It may also have issues with
+          normal erase commands.  Disable MMC ERASE to protect
+          these chips.
+
+          If unsure, say Y.
+
 config MMC_SDHCI
 	tristate "Secure Digital Host Controller Interface support"
 	depends on HAS_DMA
